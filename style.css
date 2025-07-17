@@ -1,55 +1,160 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     padding: 20px;
-    background: #f0f4f8;
+    background: #f5f0fa; /* Muy suave lavanda */
     margin: 0;
+    color: #3e206d;
 }
 
 h1 {
     text-align: center;
     margin-bottom: 30px;
+    color: #5a2d82;
+    text-shadow: 0 1px 2px rgba(90, 45, 130, 0.3);
 }
 
 #malla {
     display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
+    flex-wrap: nowrap;
+    gap: 8px;
+    overflow-x: auto;
+    padding-bottom: 12px;
+    justify-content: flex-start;
+    scrollbar-width: thin;
+    scrollbar-color: #7e57c2 #ede7f6;
+}
+
+#malla::-webkit-scrollbar {
+    height: 8px;
+}
+
+#malla::-webkit-scrollbar-track {
+    background: #ede7f6;
+    border-radius: 4px;
+}
+
+#malla::-webkit-scrollbar-thumb {
+    background-color: #7e57c2;
+    border-radius: 4px;
 }
 
 .semestre {
-    background: white;
-    padding: 15px;
-    border-radius: 8px;
-    box-shadow: 0 0 8px rgba(0,0,0,0.1);
-    width: 300px;
-    flex-grow: 1;
-    min-width: 280px;
+    background: #cbc9ce; /* Morado medio */
+    padding: 10px 8px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(126, 87, 194, 0.3);
+    min-width: 200px;
+    flex-shrink: 0;
+    color: white;
+    user-select: none;
+    transition: transform 0.2s ease;
+}
+
+.semestre:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 8px 20px rgba(126, 87, 194, 0.5);
+}
+
+.semestre h2 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-weight: 700;
+    font-size: 1.3rem;
+    letter-spacing: 1.2px;
+    text-align: center;
+    text-shadow: 0 1px 2px rgba(90, 45, 130, 0.6);
 }
 
 .ramos {
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    margin-top: 10px;
+    gap: 6px;
 }
 
 .ramo {
-    background: #2a9d8f;
-    color: white;
-    padding: 10px;
-    border-radius: 6px;
+    background: #38215f;
+    padding: 10px 14px;
+    border-radius: 8px;
     cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: inset 0 0 6px rgba(255, 255, 255, 0.15);
+    font-weight: 600;
+    font-size: 0.9rem;
     user-select: none;
-    transition: background-color 0.3s ease;
+
+    width: 150px;           /* ancho fijo para que el texto haga salto */
+    white-space: normal;    /* permite que el texto haga salto de línea */
+    word-wrap: break-word;  /* para que corte palabra si es necesario */
+    text-align: center;     /* para que quede centrado */
 }
 
 .ramo:hover {
-    background: #21867a;
+    background: #b085f5; /* Morado más claro al hover */
+    box-shadow: 0 0 10px #b085f5;
 }
 
+.ramo.iluminado {
+    box-shadow: 0 0 15px 3px #b085f5;
+    background-color: #b085f5 !important;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+
+
 .ramo.hecho {
-    background: #4caf50 !important;
+    background: #4a148c !important; /* Morado oscuro para hecho */
     text-decoration: line-through;
-    opacity: 0.8;
+    opacity: 0.85;
+    box-shadow: 0 0 12px #4a148c;
+    color: #ddd;
+}
+
+
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.5); /* Fondo semitransparente */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.modal-content {
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  text-align: center;
+  max-width: 320px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+}
+
+.modal-content h2 {
+  margin-bottom: 20px;
+  color: #5a2d82;
+}
+
+.modal-content img {
+  width: 150px;
+  margin-bottom: 20px;
+}
+
+.modal-content button {
+  background-color: #7e57c2;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.modal-content button:hover {
+  background-color: #5a2d82;
 }

@@ -15,7 +15,7 @@
             <h2>1er Semestre</h2>
             <div class="ramos">
                 <div class="ramo" data-id="1-1">Introducción al campo ocupacional</div>
-                <div class="ramo" data-id="1-2">Procesos cognitivos y afectivos I</div>
+                <div class="ramo" data-id="1-2" data-relacionado="2-1">Procesos cognitivos y afectivos I</div>
                 <div class="ramo" data-id="1-3">Historización de la Psicología</div>
                 <div class="ramo" data-id="1-4">Fundamentos de filosofía</div>
                 <div class="ramo" data-id="1-5">Taller de análisis y comprensión de textos en ciencias sociales</div>
@@ -28,7 +28,7 @@
         <div class="semestre" data-semestre="2">
             <h2>2do Semestre</h2>
             <div class="ramos">
-                <div class="ramo" data-id="2-1">Procesos Cognitivos y Afectivos II</div>
+                <div class="ramo" data-id="2-1" data-relacionado="1-2">Procesos Cognitivos y Afectivos II</div>
                 <div class="ramo" data-id="2-2">Psicología del Ciclo Vital: Infancia y Niñez</div>
                 <div class="ramo" data-id="2-3">Psicobiología</div>
                 <div class="ramo" data-id="2-4">Diversidad y Derechos Humanos</div>
@@ -134,7 +134,18 @@
                 <div class="ramo" data-id="10-3">Seminario de Investigación II</div>
             </div>
         </div>
+
+        <div id="modal-felicidades" class="modal" style="display:none;">
+            <div class="modal-content">
+                <h2>¡Felicidades por terminar el semestre! 🎉</h2>
+                <img src="assets/cat.gif" alt="Gatito bailando" />
+                <button id="cerrar-modal">Cerrar</button>
+            </div>
+        </div>
+
     </div>
+
+
 
     <script src="script.js"></script>
 </body>
