@@ -19,24 +19,30 @@ ramos.forEach(ramo => {
         checkSemestreCompleted(ramo);
     });
 
-    // Nuevo: hover para iluminar ramo relacionado
+    // Hover para iluminar ramos relacionados (soporta múltiples ids separados por coma)
     ramo.addEventListener('mouseenter', () => {
-        const idRelacionado = ramo.getAttribute('data-relacionado');
-        if (idRelacionado) {
-            const ramoRelacionado = document.querySelector(`.ramo[data-id="${idRelacionado}"]`);
-            if (ramoRelacionado) {
-                ramoRelacionado.classList.add('iluminado');
-            }
+        const relacionados = ramo.getAttribute('data-relacionado');
+        if (relacionados) {
+            relacionados.split(',').forEach(idRel => {
+                const idLimpio = idRel.trim();
+                const ramoRelacionado = document.querySelector(`.ramo[data-id="${idLimpio}"]`);
+                if (ramoRelacionado) {
+                    ramoRelacionado.classList.add('iluminado');
+                }
+            });
         }
     });
 
     ramo.addEventListener('mouseleave', () => {
-        const idRelacionado = ramo.getAttribute('data-relacionado');
-        if (idRelacionado) {
-            const ramoRelacionado = document.querySelector(`.ramo[data-id="${idRelacionado}"]`);
-            if (ramoRelacionado) {
-                ramoRelacionado.classList.remove('iluminado');
-            }
+        const relacionados = ramo.getAttribute('data-relacionado');
+        if (relacionados) {
+            relacionados.split(',').forEach(idRel => {
+                const idLimpio = idRel.trim();
+                const ramoRelacionado = document.querySelector(`.ramo[data-id="${idLimpio}"]`);
+                if (ramoRelacionado) {
+                    ramoRelacionado.classList.remove('iluminado');
+                }
+            });
         }
     });
 });
@@ -73,3 +79,4 @@ function checkSemestreCompleted(ramo) {
         showModal();
     }
 }
+
