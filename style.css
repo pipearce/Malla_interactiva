@@ -51,11 +51,10 @@ h1 {
 }
 
 @media (max-width: 768px) {
-    .semestre {
-        min-width: 45%; 
-        margin-bottom: 20px;
-    }
-}
+  .semestre-container {
+    align-items: center; /* centra verticalmente si usas flex */
+    text-align: center;
+}}
 
 @media (max-width: 480px) {
     .semestre {
