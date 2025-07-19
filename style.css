@@ -14,14 +14,15 @@ h1 {
 }
 
 #malla {
-    display: flex;
-    flex-wrap: nowrap;
-    gap: 8px;
-    overflow-x: auto;
-    padding-bottom: 12px;
-    justify-content: flex-start;
-    scrollbar-width: thin;
-    scrollbar-color: #530e29 #f0eff3;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 20px;
+  justify-items: center; 
+  margin-top: 20px;
+  max-width: 1200px; 
+  margin-left: auto;
+  margin-right: auto;
+  align-items: stretch;
 }
 
 #malla::-webkit-scrollbar {
@@ -39,37 +40,82 @@ h1 {
 }
 
 .semestre {
-    background: #f2f2f2; /* Morado medio */
-    padding: 10px 8px;
-    border-radius: 12px;
+    background: #f2f2f2;
+    padding: 10px; /* Padding interno */
+    border-radius: 10px;
     box-shadow: 0 4px 12px rgba(80, 7, 33, 0.31);
-    min-width: 150px;
-    flex-shrink: 0;
-    color: white;
+    color: #530e29;
     user-select: none;
     transition: transform 0.2s ease;
-}
-
-@media (max-width: 768px) {
-  .ramos {
+    width: 100%; 
+    
+    display: flex; /*el h2 y los ramos */
+    flex-direction: column;
     align-items: center; 
+    box-sizing: border-box;
+    min-height: 250px; 
+}
+
+
+
+/* TABLETS (entre 481px y 768px) */
+@media (max-width: 768px) and (min-width: 481px) {
+  #malla {
+    grid-template-columns: repeat(2, 1fr);
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    display: grid;
   }
-  .ramo {
-    width: 90%; 
-    max-width: 150px; 
+
+  .semestre {
+    scroll-snap-align: start;
   }
 }
 
+/*celular */
 @media (max-width: 480px) {
-  .ramos {
-    align-items: center; /* centra horizontalmente los ramos hijos */
+  #malla {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); 
+    gap: 6px;
+    justify-items: stretch;
   }
+
+ h1 {
+    text-align: center !important;
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+    padding: 0;
+  }
+
+
+  .semestre {
+    background-color: #f2f2f2;
+    padding: 6px;
+    min-height: 100px;
+    font-size: 0.7rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    width: 100%;
+   
+    grid-column: auto !important;
+  }
+
+  #malla .semestre:nth-child(9),
+  #malla .semestre:nth-child(10) {
+    grid-column: auto !important;
+  }
+
   .ramo {
-    width: 90%; /* para que ocupen casi todo el ancho y se adapten */
-    max-width: 150px; /* opcional, para no crecer mucho */
+    font-size: 0.6rem;
+    padding: 2px 4px;
+    text-align: center;
   }
 }
-
 
 .semestre:hover {
     transform: translateY(-6px);
@@ -78,53 +124,64 @@ h1 {
 
 .semestre h2 {
     margin-top: 0;
-    margin-bottom: 15px;
+    margin-bottom: 8px; 
     font-weight: 700;
-    font-size: 1.3rem;
+    font-size: 1.1rem; 
     letter-spacing: 1.2px;
     text-align: center;
     text-shadow: 0 1px 2px rgba(80, 7, 33, 0.6);
+    flex-shrink: 0; 
 }
 
 .ramos {
     display: flex;
     flex-direction: column;
-    gap: 6px;
+    gap: 5px; 
+    flex-grow: 1; 
+    justify-content: flex-start; 
+    width: 100%; 
+    padding: 0 5px; 
+    box-sizing: border-box; 
 }
 
 .ramo {
     background: #530e29;
-    padding: 10px 14px;
+    padding: 6px 8px; 
     border-radius: 8px;
     cursor: pointer;
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
     box-shadow: inset 0 0 6px rgba(255, 255, 255, 0.15);
     font-weight: 600;
-    font-size: 0.9rem;
+    font-size: 0.8rem; /* tamaño de fuente */
     user-select: none;
-    border-left: 6px solid #350316;  /*linea al borde de ramos*/
-
-    width: 150px;           /* ancho fijo para que el texto haga salto */
-    white-space: normal;    /* permite que el texto haga salto de línea */
-    word-wrap: break-word;  /* para que corte palabra si es necesario */
-    text-align: center;     /* para que quede centrado */
+    border-left: 6px solid #350316;
+    text-align: center;
+    color: white;
+    word-wrap: break-word; 
+    white-space: normal; 
+    flex-shrink: 0; 
+    line-height: 1.2; 
+    min-height: 25px; 
+    display: flex; 
+    justify-content: center;
+    align-items: center;
 }
 
 .ramo:hover {
-    background: #edd3d3; /* Morado más claro al hover */
+    background: #edd3d3;
     box-shadow: 0 0 10px #edd3d3;
+    color: #530e29;
 }
 
 .ramo.iluminado {
     box-shadow: 0 0 15px 3px #edd3d3;
     background-color: #edd3d3 !important;
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    color: #530e29;
 }
 
-
-
 .ramo.hecho {
-    background: #4a148c !important; /* Morado oscuro para hecho */
+    background: #4a148c !important;
     text-decoration: line-through;
     opacity: 0.85;
     box-shadow: 0 0 12px #4a148c;
@@ -132,15 +189,13 @@ h1 {
     border-left: #4a148c;
 }
 
-
-
 .modal {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0,0,0,0.5); /* Fondo semitransparente */
+  background-color: rgba(0,0,0,0.5);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -180,4 +235,12 @@ h1 {
 
 .modal-content button:hover {
   background-color: #edd3d3;
+}
+
+#malla .semestre:nth-child(9) { /* Semestre 9 */
+    grid-column: 2; /*columna 2 */
+}
+
+#malla .semestre:nth-child(10) { /* Semestre 10 */
+    grid-column: 3; /*columna 3 */
 }
