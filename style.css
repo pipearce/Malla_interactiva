@@ -9,7 +9,7 @@ body {
 h1 {
     text-align: center;
     margin-bottom: 30px;
-    color: #530e29;
+    color: #4a093b;
     text-shadow: 0 1px 2px rgba(130, 45, 83, 0.3);
 }
 
@@ -44,7 +44,7 @@ h1 {
     padding: 10px; /* Padding interno */
     border-radius: 10px;
     box-shadow: 0 4px 12px rgba(80, 7, 33, 0.31);
-    color: #530e29;
+    color: #4a093b;
     user-select: none;
     transition: transform 0.2s ease;
     width: 100%; 
@@ -171,22 +171,26 @@ h1 {
     background: #ede8e1;
     box-shadow: 0 0 10px #ede8e1;
     color: #4a093b;
+    border-left: 6px solid #3c002f;
+    border-right: 3px solid #3c002f;
+    border-top: 3px solid #3c002f;
+    border-bottom: 3px solid #3c002f;
 }
 
 .ramo.iluminado {
-    box-shadow: 0 0 15px 3px #edd3d3;
-    background-color: #edd3d3 !important;
+    box-shadow: 0 0 15px 3px #ede8e1;
+    background-color: #ede8e1 !important;
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
     color: #4a093b;
 }
 
 .ramo.hecho {
-    background: #4a148c !important;
+    background: #7c3e70 !important;
     text-decoration: line-through;
     opacity: 0.85;
-    box-shadow: 0 0 12px #4a148c;
+    box-shadow: 0 0 12px #7c3e70;
     color: #ddd;
-    border-left: #4a148c;
+    border-left: #7c3e70;
 }
 
 .modal {
