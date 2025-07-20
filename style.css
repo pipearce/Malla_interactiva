@@ -145,7 +145,7 @@ h1 {
 }
 
 .ramo {
-    background: #530e29;
+    background: #4a093b;
     padding: 6px 8px; 
     border-radius: 8px;
     cursor: pointer;
@@ -154,7 +154,7 @@ h1 {
     font-weight: 600;
     font-size: 0.8rem; /* tamaño de fuente */
     user-select: none;
-    border-left: 6px solid #350316;
+    border-left: 6px solid #3c002f;
     text-align: center;
     color: white;
     word-wrap: break-word; 
@@ -168,16 +168,16 @@ h1 {
 }
 
 .ramo:hover {
-    background: #edd3d3;
-    box-shadow: 0 0 10px #edd3d3;
-    color: #530e29;
+    background: #ede8e1;
+    box-shadow: 0 0 10px #ede8e1;
+    color: #4a093b;
 }
 
 .ramo.iluminado {
     box-shadow: 0 0 15px 3px #edd3d3;
     background-color: #edd3d3 !important;
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
-    color: #530e29;
+    color: #4a093b;
 }
 
 .ramo.hecho {
